@@ -1,3 +1,4 @@
+import { DigitransitService } from './services/digitransit.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -17,7 +18,10 @@ import { ListMediaComponent } from './list-media/list-media.component';
     FormsModule,
     HttpModule
   ],
-  providers: [MediaService],
+  providers: [
+    MediaService,
+    DigitransitService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

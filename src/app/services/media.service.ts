@@ -9,6 +9,6 @@ export class MediaService {
 
   getAllMedia() {
     //return this.http.get('http://media.mw.metropolia.fi/wbma/media/').map( (res) => { return res.json(); });
-    return this.http.get('http://media.mw.metropolia.fi/wbma/media/')
+    return this.http.get('http://media.mw.metropolia.fi/wbma/media/');
   }
 }

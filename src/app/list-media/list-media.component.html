@@ -1,3 +1,6 @@
+<ul *ngFor="let bus of routes">
+  <li>{{bus.name}}</li>
+</ul>
 <ul *ngFor="let item of images">
   <li><img [src]="'http://media.mw.metropolia.fi/wbma/uploads/'+item.filename" height="100px"/></li>
 </ul>

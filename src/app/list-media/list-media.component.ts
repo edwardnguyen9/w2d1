@@ -1,3 +1,4 @@
+import { DigitransitService } from './../services/digitransit.service';
 import { Response } from '@angular/http';
 import { MediaService } from './../services/media.service';
 import { Component, OnInit } from '@angular/core';
@@ -10,7 +11,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListMediaComponent implements OnInit {
   private images: any = [];
-  constructor(private mediaService: MediaService) { }
+  private routes1: any = [];
+  private routes2: any = [];
+  private routes: any = [];
+  constructor(private mediaService: MediaService, private digitransitService: DigitransitService) { }
 
   ngOnInit() {
     this.mediaService.getAllMedia().subscribe(
@@ -18,5 +22,13 @@ export class ListMediaComponent implements OnInit {
       this.images = res.json();
       console.log(this.images);
     });
+    this.digitransitService.getData('Gransinmäki').subscribe(
+      (res) => {
+        this.routes1 = res.data.stops[0].patterns;
+        this.routes2 = res.data.stops[1].patterns;
+        this.routes = this.routes1.concat(this.routes2);
+        console.log(this.routes1);
+      }
+    );
   }
 }
